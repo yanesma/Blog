@@ -1,9 +1,21 @@
 <!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
 
+<def tag="form" for="Author">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name" param/>
+    <div param="actions">
+      <submit label="#{ht 'authors.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="Post">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="post_date, author, content, user" param/>
+    <field-list fields="post_date, title, content, author" param/>
     <div param="actions">
       <submit label="#{ht 'posts.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

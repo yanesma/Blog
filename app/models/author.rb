@@ -1,18 +1,14 @@
-require 'redcloth'
-
-class Post < ActiveRecord::Base
+class Author < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-      post_date :date 
-      title :string ,:required
-      content :textile
+    name :string, :required, :unique, :null=>false, :index=>true
     timestamps
   end
 
-  belongs_to :author, :creator => true
-
+  has_many :posts
+  
   # --- Permissions --- #
 
   def create_permitted?

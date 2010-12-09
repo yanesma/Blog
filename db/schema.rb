@@ -9,18 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101125081807) do
+ActiveRecord::Schema.define(:version => 20101202075332) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
-    t.date     "post_date",  :null => false
-    t.string   "author",     :null => false
+    t.date     "post_date"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string   "title"
+    t.integer  "author_id"
   end
 
-  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+  add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40
